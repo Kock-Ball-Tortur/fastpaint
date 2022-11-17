@@ -8,11 +8,17 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format": "prettier --no-error-on-unmatched-pattern -w *"
+    "format": "prettier --no-error-on-unmatched-pattern -w **",
+    "lint": "eslint src/**/*.{ts,svelte}"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.1.0",
     "@tsconfig/svelte": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.27.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "eslint-plugin-unicorn": "^44.0.2",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.8.0",
     "svelte": "^3.52.0",
