@@ -1,23 +1,51 @@
 <script lang="ts">
-  let pastedImg = ""
+  let imageArrived = false
+  let imgSource = ""
   window.addEventListener("paste", async event => {
     event.preventDefault()
     try {
       const clipboardItems = await navigator.clipboard.read()
       console.log(clipboardItems)
       const blobOutput = await clipboardItems[0].getType("image/png")
-      pastedImg = window.URL.createObjectURL(blobOutput)
+      imgSource = window.URL.createObjectURL(blobOutput)
+      imageArrived = true
     } catch {
       console.log("no worky :)")
     }
   })
+
+  let files
+  $: if (files) {
+    console.log(files[0])
+    imgSource = window.URL.createObjectURL(files[0])
+    imageArrived = true
+  }
 </script>
 
 <main>
   <div id="imgContainer">
-      <img src={pastedImg} alt="" />
+    <img src={imgSource} alt="" />
   </div>
+  {#if !imageArrived}
+    <label id="labelForUpload" for="testInput"> Upload an Image! </label>
+    <input bind:files id="testInput" type="file" accept="image/*" />
+  {/if}
 </main>
 
-<style>
+<style lang="scss">
+  #testInput {
+    display: none;
+  }
+
+  #labelForUpload {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    &:active {
+      background-color: rgb(231, 231, 231);
+    }
+  }
 </style>
