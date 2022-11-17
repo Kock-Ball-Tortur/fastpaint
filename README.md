@@ -3,6 +3,7 @@
 <p align="center">A quick and easy way to edit images. Crop & annotate in seconds.</p>
 
 ### mvp
+
 - [ ] past image from clipboard
 - [ ] upload using file input
 - [ ] drag n drop images
