@@ -15,7 +15,7 @@
 
 <main>
   <div id="imgContainer">
-      <img src={pastedImg} alt="" />
+    <img src={pastedImg} alt="" />
   </div>
 </main>
 
