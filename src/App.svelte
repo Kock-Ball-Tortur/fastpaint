@@ -14,9 +14,10 @@
     }
   })
 
-  let files
-  $: if (files) {
-    console.log(files[0])
+  const fileInputChange = (event: Event) => {
+    const target = event.target as HTMLInputElement
+    const files = target.files
+
     imgSource = window.URL.createObjectURL(files[0])
     imageArrived = true
   }
@@ -28,7 +29,7 @@
   </div>
   {#if !imageArrived}
     <label id="labelForUpload" for="testInput"> Upload an Image! </label>
-    <input bind:files id="testInput" type="file" accept="image/*" />
+    <input on:change={fileInputChange} id="testInput" type="file" accept="image/*" />
   {/if}
 </main>
 
