@@ -1,0 +1,21 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/todo"
+  to = "https://github.com/kbtortur/fastpaint/issues/1"
+  status = 307
+
+[[redirects]]
+  from = "/git"
+  to = "https://github.com/kbtortur/fastpaint"
+  status = 307
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
