@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Toolbar from "./lib/Toolbar.svelte"
+
   let imageArrived = false
   let imgSource = ""
   window.addEventListener("paste", async event => {
@@ -24,6 +26,7 @@
 </script>
 
 <main>
+  <Toolbar />
   <div id="imgContainer">
     <img src={imgSource} alt="" />
   </div>
