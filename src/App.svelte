@@ -18,9 +18,8 @@
       context.drawImage(img, 0, 0)
     }
   }
-
+  //Used to paste Images
   window.addEventListener("paste", async event => {
-    //Used to paste Images
     event.preventDefault()
     try {
       const clipboardItems = await navigator.clipboard.read()
@@ -33,9 +32,8 @@
       console.log("no worky :)")
     }
   })
-
+  //Used to insert images utilizing file browser
   const fileInputChange = (event: Event) => {
-    //Used to insert images utilizing file browser
     const target = event.target as HTMLInputElement
     const files = target.files
 
