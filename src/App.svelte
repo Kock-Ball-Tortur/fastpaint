@@ -5,9 +5,9 @@
   let imgSource = ""
   // this will turn the image to a canvas to be able to work with it using Canvas API
   function imageToCanvas() {
-    var canvas = document.querySelector("#imgToCanvas") as HTMLCanvasElement
-    var context = canvas.getContext("2d")
-    var img = document.createElement("img") //creating an imageelement to draw from
+    let canvas = document.querySelector("#imgToCanvas") as HTMLCanvasElement
+    let context = canvas.getContext("2d")
+    let img = document.createElement("img") //creating an imageelement to draw from
     img.src = imgSource
     // not to happy about using onload in l14 but i am sick and i dont want to do better right now fuck you
     // eslint-disable-next-line unicorn/prefer-add-event-listener
