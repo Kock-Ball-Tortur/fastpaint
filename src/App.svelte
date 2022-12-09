@@ -3,7 +3,24 @@
 
   let imageArrived = false
   let imgSource = ""
+  // this will turn the image to a canvas to be able to work with it using Canvas API
+  function imageToCanvas() {
+    var canvas = document.querySelector("#imgToCanvas") as HTMLCanvasElement
+    var context = canvas.getContext("2d")
+    var img = document.createElement("img") //creating an imageelement to draw from
+    img.src = imgSource
+    // not to happy about using onload in l14 but i am sick and i dont want to do better right now fuck you
+    // eslint-disable-next-line unicorn/prefer-add-event-listener
+    img.onload = () => {
+      //draw image onto canvas as soon as it is loaded
+      canvas.width = img.width // resize canvas to image size
+      canvas.height = img.height
+      context.drawImage(img, 0, 0)
+    }
+  }
+
   window.addEventListener("paste", async event => {
+    //Used to paste Images
     event.preventDefault()
     try {
       const clipboardItems = await navigator.clipboard.read()
@@ -11,24 +28,27 @@
       const blobOutput = await clipboardItems[0].getType("image/png")
       imgSource = window.URL.createObjectURL(blobOutput)
       imageArrived = true
+      imageToCanvas()
     } catch {
       console.log("no worky :)")
     }
   })
 
   const fileInputChange = (event: Event) => {
+    //Used to insert images utilizing file browser
     const target = event.target as HTMLInputElement
     const files = target.files
 
     imgSource = window.URL.createObjectURL(files[0])
     imageArrived = true
+    imageToCanvas()
   }
 </script>
 
 <main>
   <Toolbar />
   <div id="imgContainer">
-    <img src={imgSource} alt="" />
+    <canvas id="imgToCanvas" />
   </div>
   {#if !imageArrived}
     <label id="labelForUpload" for="testInput"> Upload an Image! </label>
