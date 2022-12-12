@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format": "prettier --no-error-on-unmatched-pattern -w **",
+    "format": "prettier --no-error-on-unmatched-pattern -w .",
     "lint": "eslint src/**/*.{ts,svelte}",
     "prepare": "husky install",
     "pre-commit": "pretty-quick --staged"
