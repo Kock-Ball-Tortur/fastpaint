@@ -2,7 +2,7 @@
 </script>
 
 <div>
-  <img src="./src/assets/PaintBrush.svg" alt="Fuck" class="tool" />
+  <img src="./src/assets/rectangle.svg" alt="Fuck" class="tool" />
 </div>
 
 <style lang="scss">

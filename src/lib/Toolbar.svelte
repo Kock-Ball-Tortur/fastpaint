@@ -1,11 +1,15 @@
 <script>
   import Draw from "./Tools/Draw.svelte"
+  import Cut from "./Tools/Cut.svelte"
 </script>
 
 <div id="toolbar">
   <Draw />
-  <!-- <img src="./src/assets/rectangle.svg" alt="Fuck" class="tool" /> -->
+  <Cut />
 </div>
 
 <style lang="scss">
+  #toolbar {
+    display: inline-flex;
+  }
 </style>

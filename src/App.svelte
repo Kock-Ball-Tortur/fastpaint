@@ -9,7 +9,7 @@
     let context = canvas.getContext("2d")
     let img = document.createElement("img") //creating an imageelement to draw from
     img.src = imgSource
-    // not to happy about using onload in l14 but i am sick and i dont want to do better right now fuck you
+    // not to happy about   using onload in l14 but i am sick and i dont want to do better right now fuck you
     // eslint-disable-next-line unicorn/prefer-add-event-listener
     img.onload = () => {
       //draw image onto canvas as soon as it is loaded
@@ -44,14 +44,15 @@
 </script>
 
 <main>
-  <Toolbar />
-  <div id="imgContainer">
-    <canvas id="imgToCanvas" />
-  </div>
   {#if !imageArrived}
     <label id="labelForUpload" for="testInput"> Upload an Image! </label>
     <input on:change={fileInputChange} id="testInput" type="file" accept="image/*" />
+  {:else}
+    <Toolbar />
   {/if}
+  <div id="imgContainer">
+    <canvas id="imgToCanvas" />
+  </div>
 </main>
 
 <style lang="scss">
