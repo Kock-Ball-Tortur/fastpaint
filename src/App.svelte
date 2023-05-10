@@ -3,9 +3,9 @@
 
   let imageArrived = false
   let imgSource = ""
-  // this will turn the image to a canvas to be able to work with it using Canvas API
+
+  let canvas: HTMLCanvasElement
   function imageToCanvas() {
-    let canvas = document.querySelector("#imgToCanvas") as HTMLCanvasElement
     let context = canvas.getContext("2d")
     let img = document.createElement("img") //creating an imageelement to draw from
     img.src = imgSource
@@ -51,7 +51,7 @@
     <Toolbar />
   {/if}
   <div id="imgContainer">
-    <canvas id="imgToCanvas" />
+    <canvas bind:this={canvas} id="imgToCanvas" />
   </div>
 </main>
 
@@ -70,5 +70,8 @@
     &:active {
       background-color: rgb(231, 231, 231);
     }
+  }
+  #imgToCanvas {
+    width: 100%;
   }
 </style>
